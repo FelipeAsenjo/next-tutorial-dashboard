@@ -51,6 +51,14 @@ export default function Page() {
             className="hidden md:block"
             alt="Screenshots of the dashboard project showing desktop version"
           />
+          <Image
+            src="/hero-mobile.png"
+            width={560}
+            height={620}
+            // These values (width and height) are not the size the image is rendered, but instead the size of the actual image file used to understand the aspect ratio.
+            className="block md:hidden"
+            alt="Screenshot of the dashboard project showing mobile version"
+          />
         </div>
       </div>
     </main>
