@@ -13,7 +13,7 @@ One benefit of using layouts in Next.js is that on navigation, **only the page c
 ## Navigation
 ### Why optimize navigation?
 
-With <a> tags, there's a full page refresh.
+With <a></a> tags, there's a full page refresh.
 <Link /> components allows you to do client-side navigation.
 
 To improve the navigation experience, Next.js automatically code splits your application by route segments. This is different from a traditional React SPA, where the browser loads all your application code on the initial page load.
@@ -21,3 +21,7 @@ To improve the navigation experience, Next.js automatically code splits your app
 Splitting code by routes means that pages become isolated. If a certain page throws an error, the rest of the application will still work. This is also less code for the browser to parse, which makes your application faster.
 
 Furthermore, in production, whenever <Link> components appear in the browser's viewport, Next.js automatically prefetches the code for the linked route in the background. By the time the user clicks the link, the code for the destination page will already be loaded in the background, and this is what makes the page transition near-instant!
+
+---
+A common UI pattern is to show an active link to indicate to the user what page they are currently on.
+Since **usePathname()** is a React hook, you'll need to turn nav-links.tsx into a **Client Component**. Add React's **"use client"** directive to the top of the file
