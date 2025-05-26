@@ -6,6 +6,7 @@ import { fetchRevenue, fetchLatestInvoices, fetchCardData } from '../lib/data';
  
 //! ASYNC functions can be used in server components, this allows to use AWAIT to fetch data
 export default async function Page() {
+  //! Each request here, needs to wait to te previous one to finish before start fetching
   const revenue = await fetchRevenue()
   const latestInvoices = await fetchLatestInvoices()
   const { 

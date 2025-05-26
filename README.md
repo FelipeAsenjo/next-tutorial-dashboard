@@ -37,3 +37,11 @@ For the <LatestInvoices /> component, we need to get the latest 5 invoices, sort
 You could fetch all the invoices and sort through them using JavaScript. This isn't a problem as our data is small, but as your application grows, it can significantly increase the amount of data transferred on each request and the JavaScript required to sort through it.
 
 Instead of sorting through the latest invoices in-memory, you can use an SQL query to fetch only the last 5 invoices. See query example in **/app/lib/data.ts -> fetchLatestInvoices**
+
+The data requests are unintentionally blocking each other, creating a request waterfall.
+
+A "waterfall" refers to a sequence of network requests that depend on the completion of previous requests. In the case of data fetching, each request can only begin once the previous request has returned data.
+This pattern is not necessarily bad. There may be cases where you want waterfalls because you want a condition to be satisfied before you make the next request.
+
+However, this behavior can also be unintentional and impact performance.
+This can be solved with **Promise.all or Promise.allSettled** for fetching in parallel, but this waits for every promise to be solved, what if one of them is way to slow?
