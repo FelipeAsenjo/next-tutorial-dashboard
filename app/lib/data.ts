@@ -11,6 +11,7 @@ import { formatCurrency } from './utils';
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
+//! All the functions for fetching data from DB are here
 export async function fetchRevenue() {
   try {
     // Artificially delay a response for demo purposes.

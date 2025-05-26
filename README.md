@@ -27,5 +27,6 @@ A common UI pattern is to show an active link to indicate to the user what page 
 Since **usePathname()** is a React hook, you'll need to turn nav-links.tsx into a **Client Component**. Add React's **"use client"** directive to the top of the file
 
 ## Seed DB
+*DB is on Supabase, find the credentials on .env file*
 - Navigate to **/seed** route to populate DB.
 - Navigate to **/query** route to make sure the DB is populated.
