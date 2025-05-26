@@ -30,3 +30,10 @@ Since **usePathname()** is a React hook, you'll need to turn nav-links.tsx into 
 *DB is on Supabase, find the credentials on .env file*
 - Navigate to **/seed** route to populate DB.
 - Navigate to **/query** route to make sure the DB is populated.
+
+## Fetch
+For the <LatestInvoices /> component, we need to get the latest 5 invoices, sorted by date.
+
+You could fetch all the invoices and sort through them using JavaScript. This isn't a problem as our data is small, but as your application grows, it can significantly increase the amount of data transferred on each request and the JavaScript required to sort through it.
+
+Instead of sorting through the latest invoices in-memory, you can use an SQL query to fetch only the last 5 invoices. See query example in **/app/lib/data.ts -> fetchLatestInvoices**
