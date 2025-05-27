@@ -77,3 +77,10 @@ There are two ways you implement streaming in Next.js:
 
 1. At the page level, with the loading.tsx file (which creates <Suspense> for you).
 2. At the component level, with <Suspense> for more granular control.
+
+### Fixing the loading skeleton bug with route groups
+*Since loading.tsx is a level higher than `/invoices/page.tsx` and `/customers/page.tsx` in the file system, it's also applied to those pages.*
+
+We can change this with **Route Groups**. Create a new folder called `/(overview)` inside the dashboard folder. Then, move your `loading.tsx` and `page.tsx` files inside the folder.
+
+**Route groups** allow you to organize files into logical groups without affecting the URL path structure. When you create a new folder using parentheses (), the name won't be included in the URL path. So `/dashboard/(overview)/page.tsx` becomes `/dashboard`.
