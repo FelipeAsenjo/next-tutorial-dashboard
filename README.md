@@ -45,3 +45,23 @@ This pattern is not necessarily bad. There may be cases where you want waterfall
 
 However, this behavior can also be unintentional and impact performance.
 This can be solved with **Promise.all or Promise.allSettled** for fetching in parallel, but this waits for every promise to be solved, what if one of them is way to slow?
+
+Limitations: *The dashboard is static, so any data updates will not be reflected on your application.*
+
+### What is Static Rendering?
+*With static rendering, data fetching and rendering happens on the server at build time (when you deploy) or when revalidating data.*
+
+Benefits:
+- **Faster Websites** - Prerendered content can be cached and globally distributed.
+- **Reduced Server Load** - Because the content is cached, your server does not have to dynamically generate content for each user request.
+- **SEO** - Prerendered content is easier for search engine crawlers to index.
+
+*Static rendering is useful for UI with no data or data that is shared across users, such as a static blog post or a product page. It might not be a good fit for a dashboard that has personalized data which is regularly updated.*
+
+### What is Dynamic Rendering?
+*With dynamic rendering, content is rendered on the server for each user at request time*
+
+Benefits:
+- **Real-Time Data** - Dynamic rendering allows your application to display real-time or frequently updated data.
+- **User-Specific Content** - It's easier to serve personalized content, such as dashboards or user profiles, and update the data based on user interaction.
+- **Request Time Information** - Dynamic rendering allows you to access information that can only be known at request time, such as cookies or the URL search parameters. 
