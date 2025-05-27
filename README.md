@@ -89,3 +89,19 @@ We can change this with **Route Groups**. Create a new folder called `/(overview
 *So far, you're streaming a whole page. But you can also be more granular and stream specific components using React Suspense.*
 
 Suspense allows you to defer rendering parts of your application until some condition is met (e.g. data is loaded). You can wrap your dynamic components in Suspense. Then, pass it a fallback component to show while the dynamic component loads.
+
+Wrap the <Card> components in Suspense. You can fetch data for each individual card, but this could lead to a *popping effect* as the cards load in, this can be visually jarring for the user.
+
+To create more of a *progressive effect*, you can group the cards using a **wrapper component**. This means the static <SideNav/> will be shown first, followed by the cards, etc. You can use this pattern when you want **multiple components to load in at the same time**.
+
+**Where you place your Suspense boundaries will depend on a few things:**
+
+1. How you want the user to experience the page as it streams.
+2. What content you want to prioritize.
+3. If the components rely on data fetching.
+
+- You could stream the **whole page** like we did with `loading.tsx`... but that may lead to a **longer loading time** if one of the components has a slow data fetch.
+- You could **stream every component individually**... but that may lead to **UI popping** into the screen as it becomes ready.
+- You could also create a **progressive effect by streaming page sections**. But you'll need to create **wrapper** components.
+
+Where you place your suspense boundaries will vary depending on your application. In general, it's good practice to **move your data fetches down to the components that need it**, and then wrap those components in **Suspense**. But there is nothing wrong with streaming the sections or the whole page if that's what your application needs.
