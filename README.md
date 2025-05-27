@@ -65,3 +65,15 @@ Benefits:
 - **Real-Time Data** - Dynamic rendering allows your application to display real-time or frequently updated data.
 - **User-Specific Content** - It's easier to serve personalized content, such as dashboards or user profiles, and update the data based on user interaction.
 - **Request Time Information** - Dynamic rendering allows you to access information that can only be known at request time, such as cookies or the URL search parameters. 
+
+## Streaming
+*Streaming is a data transfer technique that allows you to break down a route into smaller "chunks" and progressively stream them from the server to the client as they become ready.*
+
+By streaming, you can **prevent slow data requests from blocking your whole page**. This allows the user to see and **interact** with parts of the page **without waiting** for all the data to load before any UI can be shown to the user.
+
+Streaming works well with React's component model, as each component can be considered a chunk.
+
+There are two ways you implement streaming in Next.js:
+
+1. At the page level, with the loading.tsx file (which creates <Suspense> for you).
+2. At the component level, with <Suspense> for more granular control.
