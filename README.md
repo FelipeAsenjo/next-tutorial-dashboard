@@ -84,3 +84,8 @@ There are two ways you implement streaming in Next.js:
 We can change this with **Route Groups**. Create a new folder called `/(overview)` inside the dashboard folder. Then, move your `loading.tsx` and `page.tsx` files inside the folder.
 
 **Route groups** allow you to organize files into logical groups without affecting the URL path structure. When you create a new folder using parentheses (), the name won't be included in the URL path. So `/dashboard/(overview)/page.tsx` becomes `/dashboard`.
+
+### Streaming a component
+*So far, you're streaming a whole page. But you can also be more granular and stream specific components using React Suspense.*
+
+Suspense allows you to defer rendering parts of your application until some condition is met (e.g. data is loaded). You can wrap your dynamic components in Suspense. Then, pass it a fallback component to show while the dynamic component loads.
