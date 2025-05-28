@@ -105,3 +105,20 @@ To create more of a *progressive effect*, you can group the cards using a **wrap
 - You could also create a **progressive effect by streaming page sections**. But you'll need to create **wrapper** components.
 
 Where you place your suspense boundaries will vary depending on your application. In general, it's good practice to **move your data fetches down to the components that need it**, and then wrap those components in **Suspense**. But there is nothing wrong with streaming the sections or the whole page if that's what your application needs.
+
+## Search and Pagination
+
+Your search functionality will span the client and the server. When a user searches for an invoice on the client, the URL params will be updated, data will be fetched on the server, and the table will re-render on the server with the new data.
+
+### Why use URL search params?
+
+- **Bookmarkable and shareable URLs** - Since the search parameters are in the URL, users can bookmark the **current state** of the application, **including their search queries and filters**, for future reference or sharing.
+- **Server-side rendering** - URL parameters can be directly consumed on the server to **render the initial state**, making it easier to handle server rendering.
+- **Analytics and tracking** - Having **search queries and filters** directly in the URL makes it easier to **track user behavior** without requiring additional client-side logic.
+
+### Next client hooks
+- **useSearchParams** - Allows you to access the parameters of the current URL.
+- **usePathname** - Lets you read the current URL's pathname.
+- **useRouter** - Enables navigation between routes within client components programmatically. There are multiple methods you can use. 
+
+Page components accept a prop called **searchParams**.
