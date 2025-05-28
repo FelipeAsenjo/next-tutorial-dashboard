@@ -2,13 +2,14 @@
 
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import { useDebouncedCallback } from 'use-debounce';
 
 export default function Search({ placeholder }: { placeholder: string }) {
   const searchParams = useSearchParams()
   const pathname = usePathname(); // current path
   const { replace } = useRouter();
 
-  function handleSearch(term: string) {
+  const handleSearch = useDebouncedCallback((term: string) => {
     //! URLSearchParams is a Web API that provides utility methods for manipulating the URL query parameters. 
     //! Instead of creating a complex string literal, you can use it to get the params string like "?page=1&query=a".
     const params = new URLSearchParams(searchParams);
@@ -22,7 +23,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
     //! updates the URL with the user's search data. For example, /dashboard/invoices?query=lee if the user searches for "Lee".
     replace(`${pathname}?${params.toString()}`); 
     // The URL is updated without reloading the page, thanks to Next.js's client-side navigation
-  }
+  }, 300)
 
   return (
     <div className="relative flex flex-1 flex-shrink-0">
