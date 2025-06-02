@@ -122,3 +122,13 @@ Your search functionality will span the client and the server. When a user searc
 - **useRouter** - Enables navigation between routes within client components programmatically. There are multiple methods you can use. 
 
 Page components accept a prop called **searchParams**.
+
+## Mutating Data
+*React Server Actions allow you to run asynchronous code directly on the server. They eliminate the need to create API endpoints to mutate your data. Instead, you write asynchronous functions that execute on the server and can be invoked from your Client or Server Components.*
+
+### Forms with Servers
+In React, you can use the action attribute in the <form> element to invoke actions. The action will automatically receive the native FormData object, containing the captured data.
+An advantage of invoking a Server Action within a Server Component is progressive enhancement - **forms work even if JavaScript has not yet loaded on the client.
+Server Actions are also deeply integrated with Next.js **caching**. When a form is submitted through a Server Action, not only can you use the action to mutate data, but you can also **revalidate the associated cache** using APIs like **revalidatePath** and **revalidateTag**.
+
+By adding the **'use server'**, you mark all the exported functions within the file as **Server Actions**. These server functions can then be imported and used in Client and Server components. *Any functions included in this file that are not used will be automatically removed from the final application bundle*.
