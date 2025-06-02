@@ -132,3 +132,8 @@ An advantage of invoking a Server Action within a Server Component is progressiv
 Server Actions are also deeply integrated with Next.js **caching**. When a form is submitted through a Server Action, not only can you use the action to mutate data, but you can also **revalidate the associated cache** using APIs like **revalidatePath** and **revalidateTag**.
 
 By adding the **'use server'**, you mark all the exported functions within the file as **Server Actions**. These server functions can then be imported and used in Client and Server components. *Any functions included in this file that are not used will be automatically removed from the final application bundle*.
+
+### Validating and Saving into DB
+Next.js has a client-side router cache that stores the route segments in the user's browser for a time. Along with prefetching, this cache ensures that users can quickly navigate between routes while reducing the number of requests made to the server.
+
+Since you're updating the data displayed in the invoices route, you want to clear this cache and trigger a new request to the server. You can do this with the revalidatePath function from Next.js:
