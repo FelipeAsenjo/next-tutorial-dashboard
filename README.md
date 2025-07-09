@@ -161,3 +161,6 @@ Validando formularios en el servidor puedes:
 - The **authorized** (*'/auth.config.ts'*) callback is used to verify if the request is authorized to access a page with Next.js Middleware. It is called before a request is completed.
 - The auth property contains the user's session, and the request property contains the incoming request.
 - The providers option is an array where you list different login options.
+
+Email: user@nextmail.com
+Password: 123456
