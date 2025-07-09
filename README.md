@@ -137,3 +137,18 @@ By adding the **'use server'**, you mark all the exported functions within the f
 Next.js has a client-side router cache that stores the route segments in the user's browser for a time. Along with prefetching, this cache ensures that users can quickly navigate between routes while reducing the number of requests made to the server.
 
 Since you're updating the data displayed in the invoices route, you want to clear this cache and trigger a new request to the server. You can do this with the revalidatePath function from Next.js:
+
+## Improving Accessibility
+
+### Accessibility and lint
+Lint puede ser util para captar problemas de accesibilidad.
+
+### Server side form validation
+Podemos prevenir el envio de formularios incompletos validando tanto en el cliente como en el servidor.
+
+Validando formularios en el servidor puedes:
+- Asegurarte de que la data este en el formato esperado antes de enviarlo a la DB.
+- Reducir el riesgo de que un usuario malicioso bypasee la validacion en el lado del cliente.
+- Tener una sola fuente de la verdad sobre que es considerado data valida.
+
+```useActionState``` hook recibe dos argumentos **(action, initialSate)**, y devuelve dos valores **[state, formAction]** -> *el estado del formulario, y una funcion para llamar cuando se envie el formulario.
