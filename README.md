@@ -164,3 +164,16 @@ Validando formularios en el servidor puedes:
 
 Email: user@nextmail.com
 Password: 123456
+
+## Metadata
+
+### Two ways to add:
+1. **Config-based**: Exporta un objeto de metadata estatico o una funcion dinamica ```generateMetadata``` en un ```layout.js``` o ```page.js```.
+2. **File-based**: Next tiene algunos archivos especiales usados para la metadata.
+    - ```favicon.ico```, ```apple-icon.jpg``` y ```icon.jpg```: Para iconos y favicons.
+    - ```opengraph-image.jpg``` y ```twitter-image.jpg```: Para imagenes de redes sociales.
+    - ```robots.txt```: Provee instrucciones para search engines crawling.
+    - ```sitemap.xml```: Ofrece informacion sobre la estructura del sitio web.
+
+Con cualquiera de estas opciones Next generara los elementos ```<head>``` relevantes para la pagina.
+Solo hay que poner las imagenes con los nombres correspondientes en el root de la carpeta ```app```

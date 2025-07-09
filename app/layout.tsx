@@ -1,5 +1,17 @@
+import { Metadata } from 'next';
 import '@/app/ui/global.css'
 import { inter } from '@/app/ui/fonts';
+
+// Metadata for the whole app
+export const metadata: Metadata = {
+  title: {
+    // the '%s' will be replaced with whatever titles you set in children pages. Ej: 'Invoices | Acme Dashboard'
+    template: '%s | Acme Dashboard',
+    default: 'Acme Dashboard'
+  },
+  description: 'The official Next.js Course Dashboard, built with App Router.',
+  metadataBase: new URL('https://next-learn-dashboard.vercel.sh'),
+};
 
 export default function RootLayout({
   children,
