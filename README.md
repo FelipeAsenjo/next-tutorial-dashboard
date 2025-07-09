@@ -152,3 +152,12 @@ Validando formularios en el servidor puedes:
 - Tener una sola fuente de la verdad sobre que es considerado data valida.
 
 ```useActionState``` hook recibe dos argumentos **(action, initialSate)**, y devuelve dos valores **[state, formAction]** -> *el estado del formulario, y una funcion para llamar cuando se envie el formulario.
+
+## Auth
+
+1. Install next-auth
+2. Run ```openssl rand -base64 32```
+
+- The **authorized** (*'/auth.config.ts'*) callback is used to verify if the request is authorized to access a page with Next.js Middleware. It is called before a request is completed.
+- The auth property contains the user's session, and the request property contains the incoming request.
+- The providers option is an array where you list different login options.
